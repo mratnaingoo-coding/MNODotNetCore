@@ -39,8 +39,11 @@ foreach (DataRow dr in dt.Rows)
 AdoDotNetExample example = new AdoDotNetExample();
 //example.Read();
 //example.Create("Title 1","Author 1","Content 1");
-//example.Update(15, "testTitle", "testAuthor", "testContent");
+//example.Create("Hello World", "Mg Mg", "About Content");
 //example.Delete(15);
-example.Edit(15);
-example.Edit(1);
+//example.Edit(15);
+//example.Edit(1);
+HelloWorld hi = new HelloWorld();
+hi.Equation(5,10);
+
 Console.ReadKey();

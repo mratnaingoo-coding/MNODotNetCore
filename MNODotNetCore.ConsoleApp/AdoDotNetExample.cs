@@ -16,7 +16,7 @@ namespace MNODotNetCore.ConsoleApp
             DataSource = "DESKTOP-35JA3AU\\SQLEXPRESS", //server name
             InitialCatalog = "MNODotNetTraining", //db name
             UserID = "sa",
-            Password = "sa@123"
+            Password = "sasa@123"
 
         };
 
