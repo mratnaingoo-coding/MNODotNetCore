@@ -37,13 +37,16 @@ foreach (DataRow dr in dt.Rows)
 }*/
 
 AdoDotNetExample example = new AdoDotNetExample();
-//example.Read();
-//example.Create("Title 1","Author 1","Content 1");
-//example.Create("Hello World", "Mg Mg", "About Content");
+example.Create("A Day in the Life of Abed Salama","Nathan Thrall","About Gaza");
+example.Create("A Living Remedy", "Nicole Chung", "Even grief provides a living remedy");
+example.Create("After Sappho", "Selby Wynn Schwartz", "Sappho’s own writing");
+example.Create("All Souls", "Saskia Hamilton", "Saskia Hamilton’s latest poetry collection");
+
+example.Read();
+
 //example.Delete(15);
 //example.Edit(15);
 //example.Edit(1);
-HelloWorld hi = new HelloWorld();
-hi.Equation(5,10);
+
 
 Console.ReadKey();
