@@ -20,7 +20,9 @@ example.Read();
 //example.Delete(15);
 //example.Edit(15);
 //example.Edit(1);
-DapperExample dapperExample = new DapperExample();
-dapperExample.Run();
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Run();
+EFCoreExample eFCoreExample = new EFCoreExample();
+eFCoreExample.Run();
 
 Console.ReadKey();
