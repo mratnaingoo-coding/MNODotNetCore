@@ -1,4 +1,6 @@
 ﻿using Dapper;
+using MNODotNetCore.ConsoleApp.Dtos;
+using MNODotNetCore.ConsoleApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,11 +10,11 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MNODotNetCore.ConsoleApp
+namespace MNODotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
-        
+
         public void Run()
         {
             //Read();
@@ -40,9 +42,9 @@ namespace MNODotNetCore.ConsoleApp
         {
 
             using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogDto>("SELECT * FROM tbl_blog WHERE BlogID = @BlogID", new BlogDto { BlogID = id }).FirstOrDefault(); 
+            var item = db.Query<BlogDto>("SELECT * FROM tbl_blog WHERE BlogID = @BlogID", new BlogDto { BlogID = id }).FirstOrDefault();
             // if(item == null) net same.
-            if(item is null)
+            if (item is null)
             {
                 Console.WriteLine("No data was found.");
                 return;
@@ -76,7 +78,7 @@ namespace MNODotNetCore.ConsoleApp
             string message = result > 0 ? "Saving success." : "Saving fail.";
             Console.WriteLine(message);
         }
-        private void Update( int id,string title, string author, string content)
+        private void Update(int id, string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -97,7 +99,7 @@ namespace MNODotNetCore.ConsoleApp
             string message = result > 0 ? "Updating success." : "Updating fail.";
             Console.WriteLine(message);
         }
-        private void Delete(int id) 
+        private void Delete(int id)
         {
             var item = new BlogDto
             {

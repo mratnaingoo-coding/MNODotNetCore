@@ -4,3 +4,6 @@
 - Ado.Net (10th April) CRUD
 - Dapper (22nd April) CRUD
 - EF Core (23rd April) CRUD
+
+# ASP .NetCore Web API
+- Blog Controller (25rd April) CRUD

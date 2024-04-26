@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MNODotNetCore.ConsoleApp.Dtos;
 
-namespace MNODotNetCore.ConsoleApp
+namespace MNODotNetCore.ConsoleApp.EFCoreExamples
 {
     internal class EFCoreExample
     {
@@ -14,15 +15,15 @@ namespace MNODotNetCore.ConsoleApp
             //Read();
             //Edit(1);
             //Edit(25);
-           // Create("testTitle10", "testAuthor10", "testContent10");
-           // Update(1003,"testTitle11", "testAuthor12", "testContent13");
+            // Create("testTitle10", "testAuthor10", "testContent10");
+            // Update(1003,"testTitle11", "testAuthor12", "testContent13");
             Delete(1003);
         }
         public void Read()
         {
-            
-            var lst =  appDbContext.Blog.ToList();
-            foreach ( BlogDto item in lst )
+
+            var lst = appDbContext.Blog.ToList();
+            foreach (BlogDto item in lst)
             {
                 Console.WriteLine(item.BlogID);
                 Console.WriteLine(item.BlogTitle);
@@ -34,7 +35,7 @@ namespace MNODotNetCore.ConsoleApp
         public void Edit(int id)
         {
             var item = appDbContext.Blog.FirstOrDefault(x => x.BlogID == id);
-            if ( item is null )
+            if (item is null)
             {
                 Console.WriteLine("No data was found");
                 return;
@@ -70,11 +71,11 @@ namespace MNODotNetCore.ConsoleApp
             }
 
             item.BlogTitle = title;
-            item.BlogAuthor = author;   
+            item.BlogAuthor = author;
             item.BlogContent = content;
 
 
-           
+
             int result = appDbContext.SaveChanges();
 
             string message = result > 0 ? "Updating success." : "Updating fail.";

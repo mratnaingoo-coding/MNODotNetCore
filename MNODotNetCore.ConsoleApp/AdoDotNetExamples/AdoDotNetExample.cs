@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace MNODotNetCore.ConsoleApp
+namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -59,13 +59,13 @@ namespace MNODotNetCore.ConsoleApp
            (@BlogTitle
            ,@BlogAuthor
            ,@BlogContent)";
-            SqlCommand cmd = new SqlCommand(query, conn);  
+            SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
             cmd.Parameters.AddWithValue("@BlogContent", content);
             int result = cmd.ExecuteNonQuery();
 
-            conn.Close() ;
+            conn.Close();
             string message = result > 0 ? "Saving success." : "Saving fail.";
             Console.WriteLine(message);
 
@@ -121,7 +121,7 @@ namespace MNODotNetCore.ConsoleApp
             conn.Close();
             Console.WriteLine("Thank you.");
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found.");
                 return;
@@ -134,7 +134,7 @@ namespace MNODotNetCore.ConsoleApp
             Console.WriteLine("BlogAuthor: " + dr[2].ToString());
             Console.WriteLine("BlogContent: " + dr[3].ToString());
             Console.WriteLine("------------------------------------------------");
-            
+
 
         }
 
