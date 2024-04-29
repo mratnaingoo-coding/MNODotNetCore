@@ -7,3 +7,4 @@
 
 # ASP .NetCore Web API
 - Blog Controller (25rd April) CRUD
+- Blog Dapper Controller (29th April) CRUD
