@@ -68,14 +68,16 @@ namespace MNODotNetCore.shared
             adapter.Fill(dt);
             conn.Close();
 
+            if (dt.Rows.Count == 0)
+            {
+                return default(N);
+            }
+
+
             string json = JsonConvert.SerializeObject(dt); // C# to json
             List<N> list = JsonConvert.DeserializeObject<List<N>>(json)!; // json to C#
 
-            if (!(list[0] is IndexOutOfRangeException))
-            {
-                return list[0];
-            }
-            throw new ArgumentException("No data was found.");
+            return list[0];
         }
 
 

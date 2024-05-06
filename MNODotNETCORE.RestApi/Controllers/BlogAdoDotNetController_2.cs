@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Text;
 using MNODotNetCore.shared;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Dapper;
 
 namespace MNODotNETCORE.RestApi.Controllers
 {
@@ -27,12 +28,15 @@ namespace MNODotNETCORE.RestApi.Controllers
         [HttpGet("{id}")]
           public IActionResult GetBlog(int id)
           {
+
               
               string query = "SELECT * from tbl_blog WHERE BlogID = @BlogID";
+
             // if u didn't use params in AdoDotNetService & put parameters into null, use below.
            /* AdoDotNetParameter[] para = new AdoDotNetParameter[1];
             para[0] = new AdoDotNetParameter("@BlogID", id);
               var lst = _adoDotNetServices.Query<BlogModel>(query, para);*/
+
            var lst= _adoDotNetServices.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogID",id));
 
             if (lst is null)
@@ -143,5 +147,7 @@ namespace MNODotNETCORE.RestApi.Controllers
             string message = result > 0 ? "Deleting success." : "Deleting fail.";
             return Ok(message);
         }
+
+        
     }
 }
