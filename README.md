@@ -2,7 +2,8 @@
 # ASP .NetCore Web API 🚀
 
 <h1>Description & Date 📅 ⌛</h1>
-- MNODotNetConsole.App (9th April)
+
+-[x] MNODotNetConsole.App (9th April)
 - Ado.Net (10th April) CRUD
 - Dapper (22nd April) CRUD
 - EF Core (23rd April) CRUD
