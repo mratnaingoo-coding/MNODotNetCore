@@ -14,9 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNETCORE.RestApi", "MN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.shared", "MNODotNetCore.shared\MNODotNetCore.shared.csproj", "{8D6FCE6E-BA1A-4ADC-8A11-5BFB76569C17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.RestAPIwithNLayer", "MNODotNetCore.RestAPIwithNLayer\MNODotNetCore.RestAPIwithNLayer.csproj", "{15495F75-E994-426C-9644-DD0F3AEB2C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.RestAPIwithNLayer", "MNODotNetCore.RestAPIwithNLayer\MNODotNetCore.RestAPIwithNLayer.csproj", "{15495F75-E994-426C-9644-DD0F3AEB2C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.ConsoleAppHttpClient", "MNODotNetCore.ConsoleAppHttpClient\MNODotNetCore.ConsoleAppHttpClient.csproj", "{7C3943CC-A349-457B-BA15-B5DE3744B10C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.ConsoleAppHttpClient", "MNODotNetCore.ConsoleAppHttpClient\MNODotNetCore.ConsoleAppHttpClient.csproj", "{7C3943CC-A349-457B-BA15-B5DE3744B10C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
