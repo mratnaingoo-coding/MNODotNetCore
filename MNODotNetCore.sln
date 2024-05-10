@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.RestAPIwithNL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.ConsoleAppHttpClient", "MNODotNetCore.ConsoleAppHttpClient\MNODotNetCore.ConsoleAppHttpClient.csproj", "{7C3943CC-A349-457B-BA15-B5DE3744B10C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.ConsoleAppRestClient", "MNODotNetCore.ConsoleAppRestClient\MNODotNetCore.ConsoleAppRestClient.csproj", "{8AB9AFFD-BB15-484C-8713-0E2FD967CBAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{7C3943CC-A349-457B-BA15-B5DE3744B10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C3943CC-A349-457B-BA15-B5DE3744B10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C3943CC-A349-457B-BA15-B5DE3744B10C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB9AFFD-BB15-484C-8713-0E2FD967CBAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB9AFFD-BB15-484C-8713-0E2FD967CBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB9AFFD-BB15-484C-8713-0E2FD967CBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB9AFFD-BB15-484C-8713-0E2FD967CBAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

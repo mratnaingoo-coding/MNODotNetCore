@@ -17,7 +17,7 @@ namespace MNODotNetCore.ConsoleAppHttpClientExamples
         {
             //await ReadAsync();
             /*   await EditAsync(1);*/
-            /*await UpdateAsync(1015, "Hello Java", "Rikzil", "Build your project with coffee.");*/
+            await PatchAsync(1015, "", "Mosh Job", "");
             await EditAsync(1015);
         }
 
@@ -113,6 +113,27 @@ namespace MNODotNetCore.ConsoleAppHttpClientExamples
             // you can use var instead of HttpContent 
             var httpContent = new StringContent(jsonBlog, Encoding.UTF8, Application.Json);
             var response = await _client.PutAsync($"{_blogEndPoint}/{id}", httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                string message = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(message);
+            }
+
+        }
+        private async Task PatchAsync(int id, string? title, string? author, string? content)
+        {
+
+            BlogDto blogDto = new BlogDto()
+            {
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content
+            };
+
+            string jsonBlog = JsonConvert.SerializeObject(blogDto);
+            // you can use var instead of HttpContent 
+            var httpContent = new StringContent(jsonBlog, Encoding.UTF8, Application.Json);
+            var response = await _client.PatchAsync($"{_blogEndPoint}/{id}", httpContent);
             if (response.IsSuccessStatusCode)
             {
                 string message = await response.Content.ReadAsStringAsync();

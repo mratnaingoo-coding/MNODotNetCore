@@ -83,7 +83,7 @@ namespace MNODotNETCORE.RestApi.Controllers
             
             
             var result = _context.SaveChanges();
-            string message = result > 0 ? "Updating successful" : "Updating fail.";
+            string message = result > 0 ? "Modifying successful" : "Modifying fail.";
 
             return Ok(message);
         }
