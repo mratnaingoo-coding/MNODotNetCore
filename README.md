@@ -14,3 +14,4 @@
 - AdoDotNet Custom Service (5th May)
 - MNODotNetCore.RestApi With Nlayer (8th May) CRUD
 - Console App CRUD With HttpClient (10th May) CRUD
+- Console App CRUD With restClient (11th May) CRUD
