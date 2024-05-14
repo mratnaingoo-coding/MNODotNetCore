@@ -31,6 +31,23 @@ namespace MNODotNetCore.RestAPIwithNLayer.Features.Birds
             return Ok(model.Tbl_Bird.FirstOrDefault(x => x.Id == id));
         }
 
+        [HttpGet("{engName}/{myanName}")]
+        public async Task<IActionResult> GetEng(string engName, string myanName)
+        {
+            var model = await GetDataAsync();
+            var item = model.Tbl_Bird.Where(x => x.BirdEnglishName == engName && x.BirdMyanmarName == myanName);
+
+            List<Tbl_engBird> lst = item.Select(x => new Tbl_engBird
+            {
+                Id = x.Id,
+                BirdMyanmarName = x.BirdMyanmarName,
+                BirdEnglishName = x.BirdEnglishName,
+                Description = x.Description
+            }).ToList();
+
+            return Ok(lst);
+        }
+
     }
 
 
@@ -47,5 +64,14 @@ namespace MNODotNetCore.RestAPIwithNLayer.Features.Birds
         public string Description { get; set; }
         public string ImagePath { get; set; }
     }
+
+    public class Tbl_engBird
+    {
+        public int Id { get; set; }
+        public string BirdMyanmarName { get; set; }
+        public string BirdEnglishName { get; set; }
+        public string Description { get; set; }
+    }
+
 
 }
