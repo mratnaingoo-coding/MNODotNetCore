@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MNODotNetCore.PizzaApi.Databases;
+using MNODotNetCore.PizzaApi.Queries;
+using MNODotNetCore.shared;
 using static MNODotNetCore.PizzaApi.Databases.OrderResponse;
 
 namespace MNODotNetCore.PizzaApi.Features.Pizza
@@ -11,10 +13,12 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
     public class PizzaController : ControllerBase
     {
         private readonly AppDbContext _appDbContext;
+        private readonly DapperServices _dapperServices;
 
         public PizzaController()
         {
             _appDbContext = new AppDbContext();
+            _dapperServices = new DapperServices(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
         }
 
         [HttpGet]
@@ -30,7 +34,7 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
             var lst = await _appDbContext.PizzaExtras.ToListAsync();
             return Ok(lst);
         }
-
+/*
         [HttpGet("Order/{invoiceNum}")]
         public async Task<IActionResult> GetOrderAsync(string invoiceNum)
         {
@@ -43,6 +47,23 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
                 OrderDetails = lst
             };
             return Ok(detail);
+        }*/
+
+        [HttpGet("Order/{invoiceNum}")]
+        public IActionResult GetOrder(string invoiceNum)
+        {
+            var item = _dapperServices.QueryFirstOrDefault<PizzaOrderInvoiceHeadModel>
+                       (PizzaQuery.PizzaOrderQuery, new { PizzaOrderInvoiceNum = invoiceNum });
+
+            var lst = _dapperServices.Query<PizzaOrderInvoiceDetailModel>
+                       (PizzaQuery.PizzaOrderDetailQuery, new { PizzaOrderInvoiceNum = invoiceNum });
+
+            var model = new PizzaOrderInvoiceResponse
+            {
+                Order = item,
+                OrderDetail = lst
+            };
+            return Ok(model);
         }
 
         [HttpPost("Order")]

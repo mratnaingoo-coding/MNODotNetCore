@@ -19,7 +19,7 @@ namespace MNODotNetCore.shared
 
 
         }
-        public N Query2<N>(string query, object? para = null)
+        public N QueryFirstOrDefault<N>(string query, object? para = null)
         {
             using IDbConnection database = new SqlConnection(_connectionString);
             database.Open();
