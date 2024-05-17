@@ -15,4 +15,6 @@
 - MNODotNetCore.RestApi With Nlayer (8th May) CRUD
 - Console App CRUD With HttpClient (10th May) CRUD
 - Console App CRUD With restClient (11th May) CRUD
-- Burma Project Idea (Myanmar Proverbs & Birds)
+- Burma Project Idea (Myanmar Proverbs & Birds) (12th May)
+- Pizza API & Pizza API with DapperService (16th May)
+- 
