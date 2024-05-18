@@ -22,7 +22,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.ConsoleAppRes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.PizzaApi", "MNODotNetCore.PizzaApi\MNODotNetCore.PizzaApi.csproj", "{C10AA769-6A1A-4137-8626-E9D84847C398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.ConsoleAppRefitExamples", "MNODotNetCore.ConsoleAppRefitExamples\MNODotNetCore.ConsoleAppRefitExamples.csproj", "{F88AF72D-57B5-4239-A28E-BFCBF836B6F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.ConsoleAppRefitExamples", "MNODotNetCore.ConsoleAppRefitExamples\MNODotNetCore.ConsoleAppRefitExamples.csproj", "{F88AF72D-57B5-4239-A28E-BFCBF836B6F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.WinFormsApp", "MNODotNetCore.WinFormsApp\MNODotNetCore.WinFormsApp.csproj", "{45E71DB6-19CF-4474-875E-9824FBB9F76D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{F88AF72D-57B5-4239-A28E-BFCBF836B6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F88AF72D-57B5-4239-A28E-BFCBF836B6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F88AF72D-57B5-4239-A28E-BFCBF836B6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
