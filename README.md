@@ -18,8 +18,8 @@
 - MNODotNetCore.RestApi With Nlayer (8th May) CRUD
 --------------------------------------------------------
 ### HttpClient, RestClient & Refit
-- Console App CRUD With HttpClient (10th May) CRUD
-- Console App CRUD With restClient (11th May) CRUD
+- Console App CRUD With HttpClient (10th May)
+- Console App CRUD With restClient (11th May)
 - Burma Project Idea (Myanmar Proverbs & Birds) (12th May)
 - Pizza API & Pizza API with DapperService (16th May)
 - Console App CRUD With API Using Refit (17th May)
