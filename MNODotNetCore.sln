@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{02
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNETCORE.RestApi", "MNODotNETCORE.RestApi\MNODotNETCORE.RestApi.csproj", "{F2C93806-AF49-4449-A2AF-81FAC9E94D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.RestApi", "MNODotNetCore.RestApi\MNODotNetCore.RestApi.csproj", "{F2C93806-AF49-4449-A2AF-81FAC9E94D20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.shared", "MNODotNetCore.shared\MNODotNetCore.shared.csproj", "{8D6FCE6E-BA1A-4ADC-8A11-5BFB76569C17}"
 EndProject
@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.PizzaApi", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.ConsoleAppRefitExamples", "MNODotNetCore.ConsoleAppRefitExamples\MNODotNetCore.ConsoleAppRefitExamples.csproj", "{F88AF72D-57B5-4239-A28E-BFCBF836B6F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.WinFormsApp", "MNODotNetCore.WinFormsApp\MNODotNetCore.WinFormsApp.csproj", "{45E71DB6-19CF-4474-875E-9824FBB9F76D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.WinFormsApp", "MNODotNetCore.WinFormsApp\MNODotNetCore.WinFormsApp.csproj", "{45E71DB6-19CF-4474-875E-9824FBB9F76D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

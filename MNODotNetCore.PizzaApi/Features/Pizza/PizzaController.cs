@@ -82,7 +82,7 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
 
             PizzaOrderModel pizzaOrderModel = new PizzaOrderModel()
             {
-                PizzaId = request.PizzaId,
+                //PizzaId = request.PizzaId,
                 PizzaOrderInvoiceNum = invNum,
                 TotalPrice = total
             };
