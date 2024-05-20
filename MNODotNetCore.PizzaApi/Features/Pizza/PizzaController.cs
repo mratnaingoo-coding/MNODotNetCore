@@ -82,13 +82,15 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
 
             PizzaOrderModel pizzaOrderModel = new PizzaOrderModel()
             {
-                //PizzaId = request.PizzaId,
+                //PizzaOrderId = 1,
+                PizzaId = request.PizzaId,
                 PizzaOrderInvoiceNum = invNum,
                 TotalPrice = total
             };
 
             List<PizzaOrderDetailsModel> pizzaOrderDetailsModel = request.Extras.Select(extraID => new PizzaOrderDetailsModel
             {
+                //PizzaOrderDetailsId = 1,
                 PizzaExtraId = extraID,
                 PizzaOrderInvoiceNum = invNum,
             }).ToList();

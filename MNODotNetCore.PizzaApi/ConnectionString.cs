@@ -11,7 +11,8 @@ internal static class ConnectionString
 {
     public static SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
     {
-        DataSource = "DESKTOP-35JA3AU\\SQLEXPRESS", //server name
+        //DataSource = "DESKTOP-35JA3AU\\SQLEXPRESS", //server name
+        DataSource = ".", //server name
         InitialCatalog = "MNODotNetTraining", //db name
         UserID = "sa",
         Password = "sasa@123",
