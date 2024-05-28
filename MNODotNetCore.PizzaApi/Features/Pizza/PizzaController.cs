@@ -82,6 +82,7 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
 
             PizzaOrderModel pizzaOrderModel = new PizzaOrderModel()
             {
+                //PizzaOrderId = 1,
                 PizzaId = request.PizzaId,
                 PizzaOrderInvoiceNum = invNum,
                 TotalPrice = total
@@ -89,6 +90,7 @@ namespace MNODotNetCore.PizzaApi.Features.Pizza
 
             List<PizzaOrderDetailsModel> pizzaOrderDetailsModel = request.Extras.Select(extraID => new PizzaOrderDetailsModel
             {
+                //PizzaOrderDetailsId = 1,
                 PizzaExtraId = extraID,
                 PizzaOrderInvoiceNum = invNum,
             }).ToList();
