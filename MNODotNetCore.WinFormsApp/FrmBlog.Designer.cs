@@ -132,6 +132,7 @@
             Name = "FrmBlog";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Blog";
+            Load += FrmBlog_Load;
             ResumeLayout(false);
             PerformLayout();
         }

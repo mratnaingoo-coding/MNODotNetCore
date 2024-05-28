@@ -16,4 +16,9 @@ internal class BlogQuery
            (@BlogTitle
            ,@BlogAuthor
            ,@BlogContent)";
+    public static string BlogList { get; } = @"SELECT [BlogID]
+            ,[BlogTitle]
+            ,[BlogAuthor]
+            ,[BlogContent]
+            FROM [dbo].[tbl_blog]";
 }

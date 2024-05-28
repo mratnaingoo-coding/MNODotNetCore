@@ -11,7 +11,7 @@ namespace MNODotNetCore.WinFormsApp
         public FrmBlog()
         {
             InitializeComponent();
-            _dapper = new DapperServices (ConnectionString.sqlConnectionStringBuilder.ConnectionString);
+            _dapper = new DapperServices(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -23,17 +23,17 @@ namespace MNODotNetCore.WinFormsApp
         {
             try
             {
-                BlogModel blog = new BlogModel ();
+                BlogModel blog = new BlogModel();
                 blog.BlogTitle = txtTitle.Text.Trim();
                 blog.BlogAuthor = txtAuthor.Text.Trim();
                 blog.BlogContent = txtContent.Text.Trim();
 
-                int result =  _dapper.Execute(BlogQuery.CreateQuery, blog);
+                int result = _dapper.Execute(BlogQuery.CreateQuery, blog);
                 string message = result > 0 ? "Saving successful." : "Saving fail.";
                 var msgBoxIcon = result > 0 ? MessageBoxIcon.Information : MessageBoxIcon.Error;
-                MessageBox.Show(message, "Blog",MessageBoxButtons.OK, msgBoxIcon);
+                MessageBox.Show(message, "Blog", MessageBoxButtons.OK, msgBoxIcon);
 
-                if(result > 0) clearControls();
+                if (result > 0) clearControls();
             }
             catch (Exception err)
             {
@@ -49,6 +49,11 @@ namespace MNODotNetCore.WinFormsApp
             txtContent.Clear();
 
             txtTitle.Focus();
+        }
+
+        private void FrmBlog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
