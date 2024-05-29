@@ -26,6 +26,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.ConsoleAppRef
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.WinFormsApp", "MNODotNetCore.WinFormsApp\MNODotNetCore.WinFormsApp.csproj", "{45E71DB6-19CF-4474-875E-9824FBB9F76D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.WinFormsAppSQLInjection", "MNODotNetCore.WinFormsAppSQLInjection\MNODotNetCore.WinFormsAppSQLInjection.csproj", "{634060B5-D055-4CE5-9C0F-89B8D63940CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.Nlayer.UI", "MNODotNetCore.Nlayer.UI\MNODotNetCore.Nlayer.UI.csproj", "{48C79354-9435-4303-90AC-980A8C940C2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.NLayer.BusinessLogic", "MNODotNetCore.NLayer.BusinessLogic\MNODotNetCore.NLayer.BusinessLogic.csproj", "{D2099898-D8A8-4B34-BB90-EA33AB173E76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.NLayer.DataAccess", "MNODotNetCore.NLayer.DataAccess\MNODotNetCore.NLayer.DataAccess.csproj", "{741942ED-0CF3-4778-A209-178076B9BC5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +76,22 @@ Global
 		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E71DB6-19CF-4474-875E-9824FBB9F76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634060B5-D055-4CE5-9C0F-89B8D63940CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634060B5-D055-4CE5-9C0F-89B8D63940CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634060B5-D055-4CE5-9C0F-89B8D63940CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634060B5-D055-4CE5-9C0F-89B8D63940CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C79354-9435-4303-90AC-980A8C940C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C79354-9435-4303-90AC-980A8C940C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C79354-9435-4303-90AC-980A8C940C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C79354-9435-4303-90AC-980A8C940C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2099898-D8A8-4B34-BB90-EA33AB173E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2099898-D8A8-4B34-BB90-EA33AB173E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2099898-D8A8-4B34-BB90-EA33AB173E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2099898-D8A8-4B34-BB90-EA33AB173E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{741942ED-0CF3-4778-A209-178076B9BC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741942ED-0CF3-4778-A209-178076B9BC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741942ED-0CF3-4778-A209-178076B9BC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741942ED-0CF3-4778-A209-178076B9BC5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
