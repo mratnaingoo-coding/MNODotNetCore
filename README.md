@@ -28,3 +28,6 @@
 - Blog Creat with Window Forms (18th May)
 - Windows Forms Blog-List (28th May)
 - Windows Form Blog Update & Delete (29th May)
+- NLayer Architecture (29th May)
+- HTML Blog (Local Storage) (03rd Jun)
+- 
