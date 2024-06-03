@@ -1,0 +1,78 @@
+:root{
+    --font-color-white:#fff;
+    --font-color-black:#222;
+}
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+body{
+    background: #2b2b2b;
+    min-height: 100vh;
+    color: var(--font-color-white);
+}
+body.active{
+    background: #f7efef;
+    color: var(--font-color-black);
+}
+
+#toggle{
+    position: relative;
+    display: block;
+    margin-right: 45px;
+    width: 90px;
+    height: 45px;
+    border-radius: 160px;
+    background: #222;
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+                inset 0 8px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+}
+.padd-margin{
+    margin: 10px 20px;
+    left: 87%;
+}
+#toggle.active{
+    background: #fff;
+    box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
+                inset 0 2px 8px rgba(0, 0, 0, 0.1),
+                inset 0 -2px 2px rgba(0, 0, 0, 0.05);
+}
+#toggle .indicator{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to bottom,#444,#222);
+    border-radius: 50%;
+    transform: scale(0.9);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5),
+                inset 0 2px 2px rgba(255,255,255,0.2),
+                inset 0 -2px 2px rgba(255,255,255,0.2);
+    transition: 0.5s;
+}
+#toggle.active .indicator{
+    left: 45px;
+    background: linear-gradient(to bottom,#e8e4e4,#f0ebeb);
+    box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.1),
+                inset 0 2px 2px rgba(255, 255, 255, 1),
+                inset 0 -2px 2px rgba(255, 255, 255, 1);
+}
+
+#toggle .moon{
+    position: relative;
+    top: 7px;
+    right: -8px;
+    width: 30px;
+}
+
+#toggle .sun{
+    position: relative;
+    top: 8.05px;
+    left: 18px;
+    width: 30px;
+}

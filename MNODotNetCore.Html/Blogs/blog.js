@@ -1,3 +1,4 @@
+
 const tblBlog = "blogs";
 let blogId = null;
 
@@ -8,7 +9,7 @@ getBlogTable();
 // deleteBlog("c1910808-a3f8-4ca2-87e7-adadf01f20bf");
 function readBlog() {
     let lst = getBlogs();
-    console.log(lst)
+   // console.log(lst)
 }
 
 function createBlog(title, author, content) {
@@ -24,7 +25,11 @@ function createBlog(title, author, content) {
     lst.push(requestModel);
     const jsonBlog = JSON.stringify(lst);
     localStorage.setItem(tblBlog, jsonBlog);
-    successMessage("Saving success.");
+    Notiflix.Loading.hourglass();
+    setTimeout(() => {
+        Notiflix.Loading.remove();
+        successMessage("Saving success.");
+    }, 2000)
     clearControls();
 }
 
@@ -56,7 +61,7 @@ function updateBlog(id, title, author, content) {
     let lst = getBlogs();
 
     const items = lst.filter(x => x.id === id);
-    console.log(items)
+   // console.log(items)
 
     console.log(items.length)
 
@@ -75,27 +80,68 @@ function updateBlog(id, title, author, content) {
 
     const jsonBlog = JSON.stringify(lst)
     localStorage.setItem(tblBlog, jsonBlog)
-    successMessage("Updating successful.");
+    Notiflix.Loading.hourglass();
+    setTimeout(()=>{
+        Notiflix.Loading.remove();
+        successMessage("Updating successful.");
+    },2000)
 
 }
 
+// function deleteBlog(id){
+
+//     // let result = confirm("Are you sure to delete?");
+//     // if(!result) return;
+//     // let lst = getBlogs();
+
+//     // const items = lst.filter(x => x.id === id);
+//     // if (items.length == 0) {
+//     //     console.log("no data was found.")
+//     //     return;
+//     // }
+//     // lst = lst.filter(x => x.id !== id);
+
+//     // const jsonBlog = JSON.stringify(lst)
+//     // localStorage.setItem(tblBlog, jsonBlog)
+
+//     // successMessage("Deleting success.");
+//     // getBlogTable();
+// }
+
+
 function deleteBlog(id) {
-    let result = confirm("Are you sure to delete?");
-    if(!result) return;
-    let lst = getBlogs();
+    Swal.fire({
+        title: "Are you sure?",
+        text: "They'll permanently delete it!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
 
-    const items = lst.filter(x => x.id === id);
-    if (items.length == 0) {
-        console.log("no data was found.")
-        return;
-    }
-    lst = lst.filter(x => x.id !== id);
 
-    const jsonBlog = JSON.stringify(lst)
-    localStorage.setItem(tblBlog, jsonBlog)
+            let lst = getBlogs();
 
-    successMessage("Deleting success.");
-    getBlogTable();
+            const items = lst.filter(x => x.id === id);
+            if (items.length == 0) {
+                console.log("no data was found.")
+                return;
+            }
+            lst = lst.filter(x => x.id !== id);
+
+            const jsonBlog = JSON.stringify(lst)
+            localStorage.setItem(tblBlog, jsonBlog)
+            Notiflix.Loading.hourglass();
+            setTimeout(() => {
+                Notiflix.Loading.remove();
+                successMessage("Deleting success.");
+            }, 2000)
+            
+            getBlogTable();
+        }
+    });
 }
 
 function uuidv4() {
@@ -109,7 +155,7 @@ function uuidv4() {
 
 function getBlogs() {
     const blogs = localStorage.getItem(tblBlog);
-    console.log(blogs)
+   // console.log(blogs)
 
     let lst = [];
     if (blogs !== null) {
@@ -122,21 +168,44 @@ $('#btnSave').click(function () {
     const title = $('#txtTitle').val();
     const author = $('#txtAuthor').val();
     const content = $('#txtContent').val();
-
-    if(blogId === null){
+    if (blogId === null) {
         createBlog(title, author, content);
-    }else{
-        updateBlog(blogId,title,author,content);
+    } else {
+        updateBlog(blogId, title, author, content);
         blogId = null;
     }
     getBlogTable();
 })
 
+$('#btnCancel').click(function () {
+    clearControls();
+})
+
 function successMessage(message) {
-    alert(message);
+    Swal.fire({
+        title: message,
+        showClass: {
+            popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `
+        },
+        hideClass: {
+            popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `
+        }
+    });
 }
 function errorMessage(message) {
-    alert(message);
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: message
+    });
 }
 
 function clearControls() {
@@ -152,7 +221,7 @@ function getBlogTable() {
     let htmlRows = '';
     lst.forEach(item => {
         const htmlRow =
-    `   <tr>
+            `   <tr>
             <td>
             <button type="button" class="btn btn-warning" onclick="editBlog('${item.id}')">Edit</button>
             <button type="button" class="btn btn-danger" onclick="deleteBlog('${item.id}')">Delete</button>
@@ -167,3 +236,4 @@ function getBlogTable() {
     });
     $('#tbody').html(htmlRows);
 }
+
