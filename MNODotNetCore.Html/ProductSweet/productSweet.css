@@ -1,0 +1,20 @@
+.header{
+    font-weight: 700;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.unit-count{
+    text-align: center;
+}
+
+
+.typing{
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

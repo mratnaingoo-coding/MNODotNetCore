@@ -6,7 +6,8 @@
     "axe/parsing": [
       "default",
       {
-        "duplicate-id-active": "off"
+        "duplicate-id-active": "off",
+        "duplicate-id": "off"
       }
     ],
     "axe/forms": [
@@ -14,6 +15,7 @@
       {
         "label": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }

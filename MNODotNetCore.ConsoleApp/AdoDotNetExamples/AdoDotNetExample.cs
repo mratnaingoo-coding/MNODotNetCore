@@ -9,20 +9,25 @@ using System.Reflection.Metadata;
 
 namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
 {
-    internal class AdoDotNetExample
+    public class AdoDotNetExample
     {
-        private readonly SqlConnectionStringBuilder _stringBuilder = new SqlConnectionStringBuilder()
+        /*private readonly SqlConnectionStringBuilder _stringBuilder = new SqlConnectionStringBuilder()
         {
             DataSource = "DESKTOP-35JA3AU\\SQLEXPRESS", //server name
             InitialCatalog = "MNODotNetTraining", //db name
             UserID = "sa",
             Password = "sasa@123"
+        };*/
 
-        };
+        private readonly SqlConnectionStringBuilder _sqlConnectingStringBuilder;
+        public AdoDotNetExample(SqlConnectionStringBuilder sqlConnectionStringBuilder)
+        {
+            _sqlConnectingStringBuilder = sqlConnectionStringBuilder;
+        }
 
         public void Read()
         {
-            SqlConnection conn = new SqlConnection(_stringBuilder.ConnectionString);
+            SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
 
             conn.Open();
             Console.WriteLine("Hello everyone, welcome to our connection.");
@@ -48,7 +53,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
         }
         public void Create(string title, string author, string content)
         {
-            SqlConnection conn = new SqlConnection(_stringBuilder.ConnectionString);
+            SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
             conn.Open();
 
             string query = @"INSERT INTO [dbo].[tbl_blog]
@@ -72,7 +77,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
         }
         public void Delete(int id)
         {
-            SqlConnection conn = new SqlConnection(_stringBuilder.ConnectionString);
+            SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
             conn.Open();
 
             string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
@@ -86,7 +91,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
         }
         public void Update(int id, string title, string author, string content)
         {
-            SqlConnection conn = new SqlConnection(_stringBuilder.ConnectionString);
+            SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
             conn.Open();
 
             string query = @"UPDATE [dbo].[tbl_blog]
@@ -108,7 +113,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
         }
         public void Edit(int id)
         {
-            SqlConnection conn = new SqlConnection(_stringBuilder.ConnectionString);
+            SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
             conn.Open();
 
             string query = @"SELECT * FROM tbl_Blog WHERE BlogID = @BlogID";

@@ -13,14 +13,22 @@ namespace MNODotNETCORE.RestApi.Controllers
     [ApiController]
     public class BlogDapperController_2 : ControllerBase
     {
-        private readonly DapperServices _dapperItem = new DapperServices(ConnectionString.sqlConnectionStringBuilder.ConnectionString); 
+        /*private readonly DapperServices _dapperItem = new DapperServices(ConnectionString.sqlConnectionStringBuilder.ConnectionString); */        
+        
+        private readonly DapperServices _dapperService;
+
+        public BlogDapperController_2(DapperServices dapperService)
+        {
+            _dapperService = dapperService;
+        }
+
         [HttpGet]
         public IActionResult GetBlogs()
         {
             string query = "SELECT * FROM tbl_blog";
            
 
-            var lst = _dapperItem.Query<BlogModel>(query);
+            var lst = _dapperService.Query<BlogModel>(query);
             return Ok(lst);
         }
         [HttpGet("{id}")]
@@ -49,7 +57,7 @@ namespace MNODotNETCORE.RestApi.Controllers
            ,@BlogAuthor
            ,@BlogContent)";
 
-           int result = _dapperItem.Execute(query, blog);
+           int result = _dapperService.Execute(query, blog);
 
             string message = result > 0 ? "Saving success." : "Saving fail.";
             return Ok(message);
@@ -69,7 +77,7 @@ namespace MNODotNETCORE.RestApi.Controllers
       ,[BlogContent] = @BlogContent
  WHERE BlogID = @BlogID";
 
-            int result = _dapperItem.Execute(query, blog);
+            int result = _dapperService.Execute(query, blog);
 
             string message = result > 0 ? "Updating success." : "Updating fail.";
             return Ok(message);
@@ -108,7 +116,7 @@ namespace MNODotNETCORE.RestApi.Controllers
    SET {conditions}
  WHERE BlogID = @BlogID";
 
-            int result = _dapperItem.Execute(query, blog);
+            int result = _dapperService.Execute(query, blog);
 
             string message = result > 0 ? "Updating success." : "Updating fail.";
             return Ok(message);
@@ -138,7 +146,7 @@ namespace MNODotNETCORE.RestApi.Controllers
             using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
             // Query2 is for FirstOrDefault(); 
 
-            var item = _dapperItem.Query2<BlogModel>(query, new BlogModel { BlogID = id });
+            var item = _dapperService.Query2<BlogModel>(query, new BlogModel { BlogID = id });
 
             return item;
 

@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Dapper;
 using System.Data.SqlClient;
+
 namespace MNODotNetCore.shared
 {
     public class DapperServices
@@ -33,6 +34,11 @@ namespace MNODotNetCore.shared
             using IDbConnection database = new SqlConnection(_connectionString);
             var outcome = database.Execute(query, para);
             return outcome;
+        }
+
+        public T Query2<T>(string query, T blogModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

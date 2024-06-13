@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MNODotNetCore.ConsoleApp.Services
 {
-    internal static class ConnectionString
+    internal static class ConnectionStrings
     {
         public static SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {

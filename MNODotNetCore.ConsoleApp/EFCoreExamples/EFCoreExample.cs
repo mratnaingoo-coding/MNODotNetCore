@@ -7,9 +7,16 @@ using MNODotNetCore.ConsoleApp.Dtos;
 
 namespace MNODotNetCore.ConsoleApp.EFCoreExamples
 {
-    internal class EFCoreExample
+    public class EFCoreExample
     {
-        private readonly AppDbContext appDbContext = new AppDbContext();
+   /*     private readonly AppDbContext appDbContext = new AppDbContext();*/
+          private readonly AppDbContext appDbContext;
+
+        public EFCoreExample(AppDbContext appDbContext)
+        {
+            this.appDbContext = appDbContext;
+        }
+
         public void Run()
         {
             //Read();

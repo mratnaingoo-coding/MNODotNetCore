@@ -49,7 +49,7 @@ function editBlog(id) {
     }
     // return items[0];
     let item = items[0];
-    blogId = item.id;
+    productId = item.id;
     $('#txtTitle').val(item.title);
     $('#txtAuthor').val(item.author);
     $('#txtContent').val(item.content);
@@ -101,8 +101,8 @@ function updateBlog(id, title, author, content) {
 //     // }
 //     // lst = lst.filter(x => x.id !== id);
 
-//     // const jsonBlog = JSON.stringify(lst)
-//     // localStorage.setItem(tblBlog, jsonBlog)
+//     // const jsonProduct = JSON.stringify(lst)
+//     // localStorage.setItem(tblProduct, jsonProduct)
 
 //     // successMessage("Deleting success.");
 //     // getBlogTable();
@@ -171,7 +171,7 @@ $('#btnSave').click(function () {
     if (blogId === null) {
         createBlog(title, author, content);
     } else {
-        updateBlog(blogId, title, author, content);
+        updateBlog(productId, title, author, content);
         blogId = null;
     }
     getBlogTable();

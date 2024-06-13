@@ -14,13 +14,21 @@ namespace MNODotNETCORE.RestApi.Controllers
     [ApiController]
     public class BlogAdoDotNetController_2 : ControllerBase
     {
-        private readonly AdoDotNetServices _adoDotNetServices = new AdoDotNetServices(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
+        /*private readonly AdoDotNetServices _adoDotNetServices = new AdoDotNetServices(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
+        */
+        private readonly AdoDotNetServices _adoDotNetService;
+        
+        public BlogAdoDotNetController_2(AdoDotNetServices adoDotNetServices)
+        {
+            _adoDotNetService = adoDotNetServices;
+        }
+
         [HttpGet]
         public IActionResult GetBlogs()
         {
             string query = "SELECT * from tbl_blog";
             
-            var lst = _adoDotNetServices.Query<BlogModel>(query);
+            var lst = _adoDotNetService.Query<BlogModel>(query);
               return Ok(lst);
 
           }
@@ -37,7 +45,7 @@ namespace MNODotNETCORE.RestApi.Controllers
             para[0] = new AdoDotNetParameter("@BlogID", id);
               var lst = _adoDotNetServices.Query<BlogModel>(query, para);*/
 
-           var lst= _adoDotNetServices.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogID",id));
+           var lst= _adoDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogID",id));
 
             if (lst is null)
             {
@@ -61,7 +69,7 @@ namespace MNODotNETCORE.RestApi.Controllers
            ,@BlogContent)";
             
 
-            int result = _adoDotNetServices.Execute(query, 
+            int result = _adoDotNetService.Execute(query, 
                 new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                 new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
                 new AdoDotNetParameter("@BlogContent", blog.BlogContent)
@@ -81,7 +89,7 @@ namespace MNODotNETCORE.RestApi.Controllers
       ,[BlogContent] = @BlogContent
  WHERE BlogID = @BlogID";
            
-            int result = _adoDotNetServices.Execute(query,
+            int result = _adoDotNetService.Execute(query,
                     new AdoDotNetParameter("@BlogID", id),
                     new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                     new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
@@ -126,7 +134,7 @@ namespace MNODotNETCORE.RestApi.Controllers
             item = item.Substring(0, item.Length - 2);
             query += item + " WHERE BlogID = @BlogID";
            
-            int result = _adoDotNetServices.Execute(query,
+            int result = _adoDotNetService.Execute(query,
                parameters.ToArray() );
             
 
@@ -140,7 +148,7 @@ namespace MNODotNETCORE.RestApi.Controllers
 
             string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
             
-            int result = _adoDotNetServices.Execute(query,
+            int result = _adoDotNetService.Execute(query,
                 new AdoDotNetParameter("@BlogID", id));
 
            
