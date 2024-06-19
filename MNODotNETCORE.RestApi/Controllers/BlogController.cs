@@ -61,9 +61,9 @@ namespace MNODotNETCORE.RestApi.Controllers
             item.BlogTitle = blog.BlogTitle;
             item.BlogAuthor = blog.BlogAuthor;
             item.BlogContent = blog.BlogContent;
+
             var result = _context.SaveChanges();
             string message = result > 0 ? "Updating successful" : "Updating fail.";
-
             return Ok(message);
         }
 
