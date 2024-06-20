@@ -34,7 +34,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.NLayer.Busine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.NLayer.DataAccess", "MNODotNetCore.NLayer.DataAccess\MNODotNetCore.NLayer.DataAccess.csproj", "{741942ED-0CF3-4778-A209-178076B9BC5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.MinimalAPI", "MNODotNetCore.MinimalAPI\MNODotNetCore.MinimalAPI.csproj", "{4A68307B-F6FA-4803-9348-09FCC75ADD53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.MinimalAPI", "MNODotNetCore.MinimalAPI\MNODotNetCore.MinimalAPI.csproj", "{4A68307B-F6FA-4803-9348-09FCC75ADD53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.MVCApp", "MNODotNetCore.MVCApp\MNODotNetCore.MVCApp.csproj", "{BECD5DEE-5F56-4F32-AF7D-9D6532216104}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +100,10 @@ Global
 		{4A68307B-F6FA-4803-9348-09FCC75ADD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A68307B-F6FA-4803-9348-09FCC75ADD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A68307B-F6FA-4803-9348-09FCC75ADD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECD5DEE-5F56-4F32-AF7D-9D6532216104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECD5DEE-5F56-4F32-AF7D-9D6532216104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECD5DEE-5F56-4F32-AF7D-9D6532216104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECD5DEE-5F56-4F32-AF7D-9D6532216104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
