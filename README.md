@@ -32,4 +32,5 @@
 - HTML Blog (Local Storage) (03rd Jun)
 - Dependency Injection (13th Jun)
 - Minimal API CRUD (19th Jun)
+- ASP .Net Core MVC Blog list & Create (20th Jun)
 - 
