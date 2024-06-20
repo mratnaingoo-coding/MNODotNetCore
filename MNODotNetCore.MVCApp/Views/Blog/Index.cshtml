@@ -13,10 +13,11 @@
 <table class="table table-primary">
     <thead>
         <tr>
-            <td>No.</td>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Content</td>
+            <th></th>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Content</th>
         </tr>
     </thead>
 
@@ -24,6 +25,10 @@
         @foreach(BlogModel item in Model)
         {
             <tr>
+                <td>
+                    <a href="/Blog/Edit/@item.BlogID" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@item.BlogID" class="btn btn-danger">Delete</a>
+                </td>
                 <td>@(++count)</td>
                 <td>@item.BlogTitle</td>
                 <td>@item.BlogAuthor</td>
