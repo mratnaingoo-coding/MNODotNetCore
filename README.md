@@ -33,4 +33,5 @@
 - Dependency Injection (13th Jun)
 - Minimal API CRUD (19th Jun)
 - ASP .Net Core MVC Blog list & Create (20th Jun)
+- ASP .Net Core MVC Blog Edit, Update & Delete (20th Jun)
 - 
