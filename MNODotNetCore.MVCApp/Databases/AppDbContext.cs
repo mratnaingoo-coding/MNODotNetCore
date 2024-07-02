@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MNODotNetCore.MVCApp.Models;
+using MNODotNetCore.MVCApp2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MNODotNetCore.MVCApp.Databases
+namespace MNODotNetCore.MVCApp2.Databases
 {
     public class AppDbContext : DbContext
     {

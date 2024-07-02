@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MNODotNetCore.MVCApp2.Models;
+using MNODotNetCore.MvcApp2.Models;
 using System.Diagnostics;
 
-namespace MNODotNetCore.MVCApp2.Controllers
+namespace MNODotNetCore.MvcApp2.Controllers
 {
     public class HomeController : Controller
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MNODotNetCore.MVCApp2.Models;
+namespace MNODotNetCore.MvcApp2.Models;
 [Table("tbl_blog")]
 
 public class BlogModel

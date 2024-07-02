@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MNODotNetCore.MVCApp2.Databases;
+using MNODotNetCore.MvcApp2.Databases;
 
 var builder = WebApplication.CreateBuilder(args);
 

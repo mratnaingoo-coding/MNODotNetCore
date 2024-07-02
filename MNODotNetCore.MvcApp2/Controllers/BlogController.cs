@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MNODotNetCore.MVCApp2.Databases;
-using MNODotNetCore.MVCApp2.Models;
+using MNODotNetCore.MvcApp2.Databases;
+using MNODotNetCore.MvcApp2.Models;
 
-namespace MNODotNetCore.MVCApp2.Controllers
+namespace MNODotNetCore.MvcApp2.Controllers
 {
     public class BlogController : Controller
     {
@@ -14,12 +14,13 @@ namespace MNODotNetCore.MVCApp2.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index()
+        [ActionName("Index")]
+        public async Task<IActionResult> BlogIndex()
         {
             var lst = await _db.Blog
                 .OrderByDescending(x => x.BlogID)
                 .ToListAsync();
-            return View(lst);
+            return View("BlogIndex",lst);
         }
         [ActionName("Create")]
         public IActionResult BlogCreate()

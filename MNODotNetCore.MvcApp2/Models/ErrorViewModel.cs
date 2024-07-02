@@ -1,4 +1,4 @@
-namespace MNODotNetCore.MVCApp2.Models
+namespace MNODotNetCore.MvcApp2.Models
 {
     public class ErrorViewModel
     {
