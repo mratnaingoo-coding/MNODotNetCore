@@ -1,0 +1,74 @@
+﻿@model ChartJsModel
+<div>
+    <canvas id="interpolationLineChart"></canvas>
+</div>
+@section scripts{
+    <script>
+        const DATA_COUNT = 12;
+        const labels = [];
+        for (let i = 0; i < DATA_COUNT; ++i) {
+            labels.push(i.toString());
+        }
+        const _datapoints = @JsonConvert.SerializeObject(Model.ILCdatapoints);
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Cubic interpolation (monotone)',
+                    data: _datapoints,
+                    borderColor: 'rgb(255, 99, 132)',
+                    fill: false,
+                    cubicInterpolationMode: 'monotone',
+                    tension: 0.4
+                }, {
+                    label: 'Cubic interpolation',
+                    data: _datapoints,
+                    borderColor: 'rgb(54, 162, 235)',
+                    fill: false,
+                    tension: 0.4
+                }, {
+                    label: 'Linear interpolation (default)',
+                    data: _datapoints,
+                    borderColor: 'rgb(153, 102, 255)',
+                    fill: false
+                }
+            ]
+        };
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Chart.js Line Chart - Cubic interpolation mode'
+                    },
+                },
+                interaction: {
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Value'
+                        },
+                        suggestedMin: -10,
+                        suggestedMax: 200
+                    }
+                }
+            },
+        };
+
+        const ctx = document.getElementById('interpolationLineChart');
+        new Chart(ctx, config);
+    </script>
+}

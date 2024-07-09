@@ -1,0 +1,81 @@
+﻿@model ChartJsModel;
+<div>
+    <canvas id="floatingBars"></canvas>
+</div>
+@section scripts {
+    <script>
+        const DATA_COUNT = 7;
+        const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+        const _MONTHS = @Html.Raw(JsonConvert.SerializeObject(Model.Month));
+        function valueOrDefault(value, defaultValue) {
+            return typeof value === 'undefined' ? defaultValue : value;
+        }
+        var _seed = Date.now();
+
+        function srand(seed) {
+            _seed = seed;
+        }
+
+        function rand(min, max) {
+            min = valueOrDefault(min, 0);
+            max = valueOrDefault(max, 0);
+            _seed = (_seed * 9301 + 49297) % 233280;
+            return min + (_seed / 233280) * (max - min);
+        }
+        function months(config) {
+            var cfg = config || {};
+            var count = cfg.count || 12;
+            var section = cfg.section;
+            var values = [];
+            var i, value;
+
+            for (i = 0; i < count; ++i) {
+                value = _MONTHS[Math.ceil(i) % 12];
+                values.push(value.substring(0, section));
+            }
+
+            return values;
+        }
+        const labels = months({ count: 7 });
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Dataset 1',
+                    data: labels.map(() => {
+                        return [rand(-100, 100), rand(-100, 100)];
+                    }),
+                    backgroundColor: 'rgb(255, 99, 132)',
+                },
+                {
+                    label: 'Dataset 2',
+                    data: labels.map(() => {
+                        return [rand(-100, 100), rand(-100, 100)];
+                    }),
+                    backgroundColor: 'rgb(54, 162, 235)',
+                },
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Floating Bar Chart'
+                    }
+                }
+            }
+        };
+
+        const ctx = document.getElementById('floatingBars');
+        new Chart(ctx, config);
+
+    </script>
+}
