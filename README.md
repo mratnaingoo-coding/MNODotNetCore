@@ -39,5 +39,5 @@
 - ASP .Net Core MVC Ajax (02nd Jul - not complete)
 - ASP .Net Core MVC Chart (ApexChart) {Simple Pie Chart & Multiple Y Axis Chart} (03rd Jul)
 - ASP .Net Core MVC Chart (ChartJs) {Example Chart, Floating Bars, Interpolation Line Chart, Stacked Bar Chart} (09th Jul)
-- ASP .Net Core MVC Chart (HighCharts) { Bubble Chart, Variwide } (10th Jul)
+- ASP .Net Core MVC Chart (HighCharts) { Bubble Chart, Variwide, AreaRange } (10th Jul)
 - ASP .Net Core MVC Chart (CanvasJS) { Pyramid Chart, Pareto Chart With Index} (10th Jul)
