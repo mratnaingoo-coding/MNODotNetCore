@@ -37,4 +37,7 @@
 - ASP .Net Core MVC Blog list & Create (20th Jun)
 - ASP .Net Core MVC Blog Edit, Update & Delete (20th Jun)
 - ASP .Net Core MVC Ajax (02nd Jul - not complete)
-- ASP .Net Core MVC Chart {Simple Pie Chart & Multiple Y Axis Chart} (03rd Jul)
+- ASP .Net Core MVC Chart (ApexChart) {Simple Pie Chart & Multiple Y Axis Chart} (03rd Jul)
+- ASP .Net Core MVC Chart (ChartJs) {Example Chart, Floating Bars, Interpolation Line Chart, Stacked Bar Chart} (09th Jul)
+- ASP .Net Core MVC Chart (HighCharts)
+- ASP .Net Core MVC Chart (CanvasJS)
