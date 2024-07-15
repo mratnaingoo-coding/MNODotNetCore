@@ -1,6 +1,6 @@
 ﻿@model List<BlogModel>
 @{
-    ViewData["Title"] = "Blog Page";
+    ViewData["Title"] = "Blog";
     int count = 0;
 }
 
@@ -26,8 +26,8 @@
         {
             <tr>
                 <td>
-                    <a href="/Blog/Edit/@item.BlogID" class="btn btn-warning">Edit</a>
-                    <a href="/Blog/Delete/@item.BlogID" class="btn btn-danger">Delete</a>
+                    <a href="/Blog/Edit/@item.BlogId" class="btn btn-warning">Edit</a>
+                    <button type="button" class="btn btn-danger btn-delete" data-blog-id="@item.BlogId">Delete</button>
                 </td>
                 <td>@(++count)</td>
                 <td>@item.BlogTitle</td>
@@ -38,3 +38,37 @@
 
     </tbody>
 </table>
+@section scripts{
+    <script>
+        $('.btn-delete').click(function () {
+            const isConfirm = confirm("Are you sure want to delete?");
+            if (!isConfirm) return;
+
+            const id = $(this).data('blog-id');
+            const _reqModel =
+            {
+                BlogId: id
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Blog/Delete',
+                data: { blog: _reqModel },
+                dataType: "JSON",
+                success: function (result) {
+                    // console.log(result);
+                    const msg = result.Message
+                    if (!result.IsSuccess) {
+                        alert(msg);
+                        return;
+                    }
+                    alert(msg);
+                    location.href = "/Blog/Index";
+                },
+                error: function (xhr, status, error) {
+                    console.log({ xhr, status, error })
+                }
+            });
+        })
+    </script>
+}

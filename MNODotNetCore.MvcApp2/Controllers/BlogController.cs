@@ -17,8 +17,9 @@ namespace MNODotNetCore.MvcApp2.Controllers
         [ActionName("Index")]
         public async Task<IActionResult> BlogIndex()
         {
-            var lst = await _db.Blog
-                .OrderByDescending(x => x.BlogID)
+            var lst = await _db.Blogs
+                .AsNoTracking()
+                .OrderByDescending(x => x.BlogId)
                 .ToListAsync();
             return View("BlogIndex",lst);
         }
@@ -28,20 +29,24 @@ namespace MNODotNetCore.MvcApp2.Controllers
             return View("BlogCreate");
         }
         [HttpPost]
-        [ActionName("Submit")]
+        [ActionName("Save")]
         public async Task<IActionResult> BlogCreate(BlogModel blog)
         {
-            await _db.Blog.AddAsync(blog);
+            await _db.Blogs.AddAsync(blog);
             var result = await _db.SaveChangesAsync();
-            /* return View("BlogCreate");*/
-            return Redirect("/Blog");
+            var message = new MessageModel()
+            {
+                IsSuccess = result > 0,
+                Message = result > 0 ? "Saving Successful!" : "Saving Fail!"
+        };
+            return Json(message);
         }
 
         [HttpGet]
         [ActionName("Edit")]
         public async Task<IActionResult> BlogEdit(int id)
         {
-             var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogID == id);
+             var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
              if (item is null)
             {
                 return Redirect("/Blog");
@@ -53,34 +58,47 @@ namespace MNODotNetCore.MvcApp2.Controllers
         [ActionName("Update")]
         public async Task<IActionResult> BlogUpdate(int id, BlogModel blog)
         {
-            var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogID == id);
+            var item = await _db.Blogs
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.BlogId == id);
             if (item is null)
             {
-                return Redirect("/Blog");
+                return Redirect("/Blogs");
             }
 
             item.BlogTitle    = blog.BlogTitle;
             item.BlogAuthor   = blog.BlogAuthor;
             item.BlogContent  = blog.BlogContent;
 
-            await _db.SaveChangesAsync();
-            return Redirect("/Blog");
+            _db.Entry(item).State = EntityState.Modified;
+
+            var result = await _db.SaveChangesAsync();
+            var message = new MessageModel()
+            {
+                IsSuccess = result > 0,
+                Message = result > 0 ? "Updating Successful!" : "Updating Fail!"
+            };
+            return Json(message);
         }
 
-        [HttpGet]
+        [HttpPost]
         [ActionName("Delete")]
-        public async Task<IActionResult> BlogDelete(int id)
+        public async Task<IActionResult> BlogDelete(BlogModel blog)
         {
-            var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogID == id);
+            var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogId == blog.BlogId);
             if (item is null)
             {
                 return Redirect("/Blog");
             }
 
-            _db.Blog.Remove(item);
-
-            await _db.SaveChangesAsync();
-            return Redirect("/Blog");
+            _db.Blogs.Remove(item);
+            var result = await _db.SaveChangesAsync();
+            var message = new MessageModel()
+            {
+                IsSuccess = result > 0,
+                Message = result > 0 ? "Deleting Successful!" : "Deleting Fail!"
+            };
+            return Json(message);
         }
     }
 }

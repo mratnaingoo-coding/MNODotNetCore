@@ -19,5 +19,5 @@ public class AppDbContext : DbContext
 //if you use MySQL or Oracle or other change name behind Use.
 optionsBuilder.UseSqlServer(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
 }*/
-    public DbSet<BlogModel> Blog { get; set; }
+    public DbSet<BlogModel> Blogs { get; set; }
 }

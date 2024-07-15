@@ -1,26 +1,28 @@
-﻿<h2>Create New Blog</h2>
+﻿@model BlogModel
+<h2>Edit Blog</h2>
 
 
 <div class="mb-3">
-   <label class="form-label">Title</label>
-   <input type="text" class="form-control" id="BlogTitle">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" id="BlogTitle" value="@Model.BlogTitle">
 </div>
 <div class="mb-3">
-   <label class="form-label">Author</label>
-   <input type="text" class="form-control" id="BlogAuthor">
+    <label class="form-label">Author</label>
+    <input type="text" class="form-control" id="BlogAuthor" value="@Model.BlogAuthor">
 </div>
 <div class="mb-3">
-   <label class="form-label">Content</label>
-   <input type="text" class="form-control" id="BlogContent">
+    <label class="form-label">Content</label>
+    <input type="text" class="form-control" id="BlogContent" value="@Model.BlogContent">
 </div>
+
 
 <a href="/Blog" class="btn btn-dark">Back</a>
-<button type="button" id="btnSave" class="btn btn-success">Save</button>
-@section scripts{
+<button type="button" id="btnUpdate" class="btn btn-success">Update</button>
+
+@section scripts {
     <script>
-        //14:43 mins
-        // alert('Hello');
-        $('#btnSave').click(function() {
+
+        $('#btnUpdate').click(function () {
             const title = $('#BlogTitle').val();
             const author = $('#BlogAuthor').val();
             const content = $('#BlogContent').val();
@@ -34,29 +36,25 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/Blog/Save',
+                url: '/Blog/Update/@Model.BlogId',
                 data: { blog: _reqModel },
                 dataType: "JSON",
                 success: function (result) {
-                   // console.log(result);
+                    // console.log(result);
                     const msg = result.Message
-                   if(!result.IsSuccess){
-                       alert(msg);
-                       return;
-                   }
+                    if (!result.IsSuccess) {
+                        alert(msg);
+                        return;
+                    }
                     alert(msg);
                     location.href = "/Blog/Index";
                 },
                 error: function (xhr, status, error) {
-                    console.log({xhr, status, error})
+                    console.log({ xhr, status, error })
                 }
             });
         })
     </script>
 }
 
-@section css{
-    <style>
-       
-    </style>
-}
+

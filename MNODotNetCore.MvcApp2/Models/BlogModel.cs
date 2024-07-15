@@ -12,11 +12,15 @@ namespace MNODotNetCore.MvcApp2.Models;
 public class BlogModel
 {
     [Key]
-    public int BlogID { get; set; }
+    public int BlogId { get; set; }
     public string? BlogTitle { get; set; }
     public string? BlogAuthor { get; set; }
     public string? BlogContent { get; set; }
 }
 //public record BlogEntity(int BlogID, string BlogTitle, string BlogAuthor, string BlogContent);
 
-
+public class MessageModel
+{
+    public bool IsSuccess { get; set; }
+    public string Message { get; set; }
+}
