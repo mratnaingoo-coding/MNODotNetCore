@@ -13,7 +13,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
     {
         /*private readonly SqlConnectionStringBuilder _stringBuilder = new SqlConnectionStringBuilder()
         {
-            DataSource = "DESKTOP-35JA3AU\\SQLEXPRESS", //server name
+            DataSource = "RIKZIL\\SQLEXPRESS", //server name
             InitialCatalog = "MNODotNetTraining", //db name
             UserID = "sa",
             Password = "sasa@123"

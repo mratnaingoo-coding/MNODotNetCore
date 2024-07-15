@@ -1,9 +1,18 @@
 using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 String filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs/MNODotNetCore.MvcChartApp.log");
 Log.Logger = new LoggerConfiguration()
 	.WriteTo.Console()
-	.WriteTo.File(filePath, rollingInterval: RollingInterval.Hour)
+    .WriteTo
+    .MSSqlServer(
+        connectionString: "Server = RIKZIL\\SQLEXPRESS;Database=MNODotNetTraining;UserID = sa;Password =sasa@123; TrustServerCertificate = true;",
+        sinkOptions: new MSSqlServerSinkOptions 
+		{ 
+			TableName = "Tbl_LogEvents", 
+			AutoCreateSqlTable = true
+		})
+    .WriteTo.File(filePath, rollingInterval: RollingInterval.Hour)
 	.CreateLogger();
 
 try
