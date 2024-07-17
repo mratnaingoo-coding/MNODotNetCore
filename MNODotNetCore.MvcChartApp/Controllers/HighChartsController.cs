@@ -151,23 +151,20 @@ namespace MNODotNetCore.MvcChartApp.Controllers
 
             return View(model);
         }
-        private async Task<AreaRangeData> GetDataAsync()
+        private async Task<AreaRangeDataModel> GetDataAsync()
         {
 
             string jsonTest = await System.IO.File.ReadAllTextAsync("Arearange.json");
-            var model = JsonConvert.DeserializeObject<AreaRangeData>(jsonTest);
+            var model = JsonConvert.DeserializeObject<AreaRangeDataModel>(jsonTest);
             return model;
         }
         public async Task<IActionResult> AreaRange()
         {
             var model = await GetDataAsync();
-            return View(model.Property1);
+            return View(model);
         }
 
-        public class AreaRangeData
-        {
-            public float[][] Property1 { get; set; }
-        }
+       
 
     }
 }
