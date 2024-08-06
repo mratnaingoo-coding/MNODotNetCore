@@ -1,11 +1,6 @@
 ﻿
-<figure class="highcharts-figure">
+<figure class="highcharts-figure" id="chart-container">
     <div id="container"></div>
-    <p class="highcharts-description">
-        Pie charts are very popular for showing a compact overview of a
-        composition or comparison. While they can be harder to read than
-        column charts, they remain a popular choice for small datasets.
-    </p>
 </figure>
 @section style {
     <style>
@@ -60,75 +55,94 @@
 }
 @section scripts{
     <script>
-        Highcharts.chart('container', {
-            chart: {
-                type: 'pie'
-            },
-            title: {
-                text: 'Egg Yolk Composition'
-            },
-            tooltip: {
-                valueSuffix: '%'
-            },
-            subtitle: {
-                text:
-                    'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
-            },
-            plotOptions: {
-                series: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: [{
-                        enabled: true,
-                        distance: 20
-                    }, {
-                        enabled: true,
-                        distance: -40,
-                        format: '{point.percentage:.1f}%',
-                        style: {
-                            fontSize: '1.2em',
-                            textOutline: 'none',
-                            opacity: 0.7
-                        },
-                        filter: {
-                            operator: '>',
-                            property: 'percentage',
-                            value: 10
-                        }
-                    }]
-                }
-            },
-            series: [
-                {
-                    name: 'Percentage',
-                    colorByPoint: true,
-                    data: [
-                        {
-                            name: 'Water',
-                            y: 55.02
-                        },
-                        {
-                            name: 'Fat',
-                            sliced: true,
-                            selected: true,
-                            y: 26.71
-                        },
-                        {
-                            name: 'Carbohydrates',
-                            y: 1.09
-                        },
-                        {
-                            name: 'Protein',
-                            y: 15.5
-                        },
-                        {
-                            name: 'Ash',
-                            y: 1.68
-                        }
-                    ]
-                }
-            ]
+
+        function setPieChart(data){
+            $('#chart-container').html(`<div id="container"></div>`);
+            // const data = [
+            //     {
+            //         name: 'Water',
+            //         y: 55.02
+            //     },
+            //     {
+            //         name: 'Fat',
+            //         sliced: true,
+            //         selected: true,
+            //         y: 26.71
+            //     },
+            //     {
+            //         name: 'Carbohydrates',
+            //         y: 1.09
+            //     },
+            //     {
+            //         name: 'Protein',
+            //         y: 15.5
+            //     },
+            //     {
+            //         name: 'Ash',
+            //         y: 1.68
+            //     }
+            // ];
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Egg Yolk Composition'
+                },
+                tooltip: {
+                    valueSuffix: '%'
+                },
+                subtitle: {
+                    text:
+                        'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
+                },
+                plotOptions: {
+                    series: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: [{
+                            enabled: true,
+                            distance: 20
+                        }, {
+                            enabled: true,
+                            distance: -40,
+                            format: '{point.percentage:.1f}%',
+                            style: {
+                                fontSize: '1.2em',
+                                textOutline: 'none',
+                                opacity: 0.7
+                            },
+                            filter: {
+                                operator: '>',
+                                property: 'percentage',
+                                value: 10
+                            }
+                        }]
+                    }
+                },
+                series: [
+                    {
+                        name: 'Percentage',
+                        colorByPoint: true,
+                        data: data
+                    }
+                ]
+            });
+
+        }
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/chartHub").build();
+
+        connection.on("ReceivePieChart", function (data) {
+            console.log(data);
+            setPieChart(data);
         });
 
+        connection.start().then(function () {
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+        
     </script>
 }
