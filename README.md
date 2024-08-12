@@ -44,4 +44,5 @@
 - Text Log, Db Log & Realtime Chat App (15th Jul)
 - Realtime Chart App Using SignalR (05th Aug)
 - EFCore Database First (06th Aug)
+- ASP .NET Core (MVC) + UI Design (12th Aug)
 - 
