@@ -42,3 +42,6 @@
 - ASP .Net Core MVC Chart (HighCharts) { Bubble Chart, Variwide, AreaRange } (10th Jul)
 - ASP .Net Core MVC Chart (CanvasJS) { Pyramid Chart, Pareto Chart With Index} (10th Jul)
 - Text Log, Db Log & Realtime Chat App (15th Jul)
+- Realtime Chart App Using SignalR (05th Aug)
+- EFCore Database First (06th Aug)
+- 
