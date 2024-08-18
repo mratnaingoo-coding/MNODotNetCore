@@ -45,4 +45,4 @@
 - Realtime Chart App Using SignalR (05th Aug)
 - EFCore Database First (06th Aug)
 - ASP .NET Core (MVC) + UI Design (12th Aug)
-- 
+- Blazor Web Assembly (12th Aug)
