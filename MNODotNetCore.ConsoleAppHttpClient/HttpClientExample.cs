@@ -31,7 +31,7 @@ namespace MNODotNetCore.ConsoleAppHttpClientExamples
                 foreach (var item in lst)
                 {
                     //  Console.WriteLine(JsonConvert.SerializeObject(blog));
-                    Console.WriteLine($"ID: {item.BlogID}");
+                    Console.WriteLine($"ID: {item.BlogId}");
                     Console.WriteLine($"Title: {item.BlogTitle}");
                     Console.WriteLine($"Author: {item.BlogAuthor}");
                     Console.WriteLine($"Content: {item.BlogContent}");
@@ -68,7 +68,7 @@ namespace MNODotNetCore.ConsoleAppHttpClientExamples
                 string jsonTest = await response.Content.ReadAsStringAsync();
                 var item = JsonConvert.DeserializeObject<BlogDto>(jsonTest)!;
 
-                Console.WriteLine($"ID: {item.BlogID}");
+                Console.WriteLine($"ID: {item.BlogId}");
                 Console.WriteLine($"Title: {item.BlogTitle}");
                 Console.WriteLine($"Author: {item.BlogAuthor}");
                 Console.WriteLine($"Content: {item.BlogContent}");

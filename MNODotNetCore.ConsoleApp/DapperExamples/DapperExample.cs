@@ -36,7 +36,7 @@ namespace MNODotNetCore.ConsoleApp.DapperExamples
             List<BlogDto> lst = db.Query<BlogDto>("SELECT * FROM tbl_blog").ToList();
             foreach (BlogDto item in lst)
             {
-                Console.WriteLine(item.BlogID);
+                Console.WriteLine(item.BlogId);
                 Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogAuthor);
                 Console.WriteLine(item.BlogContent);
@@ -48,14 +48,14 @@ namespace MNODotNetCore.ConsoleApp.DapperExamples
         {
 
             using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogDto>("SELECT * FROM tbl_blog WHERE BlogID = @BlogID", new BlogDto { BlogID = id }).FirstOrDefault();
+            var item = db.Query<BlogDto>("SELECT * FROM tbl_blog WHERE BlogId = @BlogId", new BlogDto { BlogId = id }).FirstOrDefault();
             // if(item == null) net same.
             if (item is null)
             {
                 Console.WriteLine("No data was found.");
                 return;
             }
-            Console.WriteLine(item.BlogID);
+            Console.WriteLine(item.BlogId);
             Console.WriteLine(item.BlogTitle);
             Console.WriteLine(item.BlogAuthor);
             Console.WriteLine(item.BlogContent);
@@ -88,7 +88,7 @@ namespace MNODotNetCore.ConsoleApp.DapperExamples
         {
             var item = new BlogDto
             {
-                BlogID = id,
+                BlogId = id,
                 BlogTitle = title,
                 BlogAuthor = author,
                 BlogContent = content
@@ -97,7 +97,7 @@ namespace MNODotNetCore.ConsoleApp.DapperExamples
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
- WHERE BlogID = @BlogID";
+ WHERE BlogId = @BlogId";
 
             using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, item);
@@ -109,9 +109,9 @@ namespace MNODotNetCore.ConsoleApp.DapperExamples
         {
             var item = new BlogDto
             {
-                BlogID = id,
+                BlogId = id,
             };
-            string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
+            string query = @"DELETE FROM tbl_blog WHERE BlogId = @BlogId";
 
             using IDbConnection db = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, item);

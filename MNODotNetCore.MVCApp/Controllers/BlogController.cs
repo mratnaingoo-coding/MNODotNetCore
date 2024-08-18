@@ -17,7 +17,7 @@ namespace MNODotNetCore.MVCApp2.Controllers
         public async Task<IActionResult> Index()
         {
             var lst = await _db.Blog
-                .OrderByDescending(x => x.BlogID)
+                .OrderByDescending(x => x.BlogId)
                 .ToListAsync();
             return View(lst);
         }
@@ -40,7 +40,7 @@ namespace MNODotNetCore.MVCApp2.Controllers
         [ActionName("Edit")]
         public async Task<IActionResult> BlogEdit(int id)
         {
-             var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogID == id);
+             var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogId == id);
              if (item is null)
             {
                 return Redirect("/Blog");
@@ -52,7 +52,7 @@ namespace MNODotNetCore.MVCApp2.Controllers
         [ActionName("Update")]
         public async Task<IActionResult> BlogUpdate(int id, BlogModel blog)
         {
-            var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogID == id);
+            var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogId == id);
             if (item is null)
             {
                 return Redirect("/Blog");
@@ -70,7 +70,7 @@ namespace MNODotNetCore.MVCApp2.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> BlogDelete(int id)
         {
-            var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogID == id);
+            var item = await _db.Blog.FirstOrDefaultAsync(x => x.BlogId == id);
             if (item is null)
             {
                 return Redirect("/Blog");

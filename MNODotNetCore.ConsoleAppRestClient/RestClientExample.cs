@@ -37,7 +37,7 @@ internal class RestClientExample
             foreach (var item in lst)
             {
                 //  Console.WriteLine(JsonConvert.SerializeObject(blog));
-                Console.WriteLine($"ID: {item.BlogID}");
+                Console.WriteLine($"ID: {item.BlogId}");
                 Console.WriteLine($"Title: {item.BlogTitle}");
                 Console.WriteLine($"Author: {item.BlogAuthor}");
                 Console.WriteLine($"Content: {item.BlogContent}");
@@ -74,7 +74,7 @@ internal class RestClientExample
             string jsonTest = response.Content!;
             var item = JsonConvert.DeserializeObject<BlogDto>(jsonTest)!;
 
-            Console.WriteLine($"ID: {item.BlogID}");
+            Console.WriteLine($"ID: {item.BlogId}");
             Console.WriteLine($"Title: {item.BlogTitle}");
             Console.WriteLine($"Author: {item.BlogAuthor}");
             Console.WriteLine($"Content: {item.BlogContent}");

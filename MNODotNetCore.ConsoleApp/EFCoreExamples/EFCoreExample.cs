@@ -32,7 +32,7 @@ namespace MNODotNetCore.ConsoleApp.EFCoreExamples
             var lst = appDbContext.Blog.ToList();
             foreach (BlogDto item in lst)
             {
-                Console.WriteLine(item.BlogID);
+                Console.WriteLine(item.BlogId);
                 Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogAuthor);
                 Console.WriteLine(item.BlogContent);
@@ -41,13 +41,13 @@ namespace MNODotNetCore.ConsoleApp.EFCoreExamples
         }
         public void Edit(int id)
         {
-            var item = appDbContext.Blog.FirstOrDefault(x => x.BlogID == id);
+            var item = appDbContext.Blog.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 Console.WriteLine("No data was found");
                 return;
             }
-            Console.WriteLine(item.BlogID);
+            Console.WriteLine(item.BlogId);
             Console.WriteLine(item.BlogTitle);
             Console.WriteLine(item.BlogAuthor);
             Console.WriteLine(item.BlogContent);
@@ -70,7 +70,7 @@ namespace MNODotNetCore.ConsoleApp.EFCoreExamples
         }
         public void Update(int id, string title, string author, string content)
         {
-            var item = appDbContext.Blog.FirstOrDefault(x => x.BlogID == id);
+            var item = appDbContext.Blog.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 Console.WriteLine("No data was found");
@@ -90,7 +90,7 @@ namespace MNODotNetCore.ConsoleApp.EFCoreExamples
         }
         public void Delete(int id)
         {
-            var item = appDbContext.Blog.FirstOrDefault(x => x.BlogID == id);
+            var item = appDbContext.Blog.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 Console.WriteLine("No data was found");

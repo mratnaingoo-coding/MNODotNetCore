@@ -43,7 +43,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
 
             foreach (DataRow dr in dt.Rows)
             {
-                Console.WriteLine("BlogID: " + dr[0].ToString());
+                Console.WriteLine("BlogId: " + dr[0].ToString());
                 Console.WriteLine("BlogTitle: " + dr[1].ToString());
                 Console.WriteLine("BlogAuthor: " + dr[2].ToString());
                 Console.WriteLine("BlogContent: " + dr[3].ToString());
@@ -80,9 +80,9 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
             SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
             conn.Open();
 
-            string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
+            string query = @"DELETE FROM tbl_blog WHERE BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogID", id);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             int result = cmd.ExecuteNonQuery();
 
             conn.Close();
@@ -98,9 +98,9 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
- WHERE BlogID = @BlogID";
+ WHERE BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogID", id);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
             cmd.Parameters.AddWithValue("@BlogContent", content);
@@ -116,9 +116,9 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
             SqlConnection conn = new SqlConnection(_sqlConnectingStringBuilder.ConnectionString);
             conn.Open();
 
-            string query = @"SELECT * FROM tbl_Blog WHERE BlogID = @BlogID";
+            string query = @"SELECT * FROM tbl_Blog WHERE BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogID", id);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -134,7 +134,7 @@ namespace MNODotNetCore.ConsoleApp.AdoDotNetExamples
 
             DataRow dr = dt.Rows[0];
 
-            Console.WriteLine("BlogID: " + dr[0].ToString());
+            Console.WriteLine("BlogId: " + dr[0].ToString());
             Console.WriteLine("BlogTitle: " + dr[1].ToString());
             Console.WriteLine("BlogAuthor: " + dr[2].ToString());
             Console.WriteLine("BlogContent: " + dr[3].ToString());

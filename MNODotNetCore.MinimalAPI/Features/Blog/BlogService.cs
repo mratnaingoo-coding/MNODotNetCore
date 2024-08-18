@@ -16,7 +16,7 @@ namespace MNODotNetCore.MinimalAPI.Features.Blog
 
             app.MapGet("api/Blog/{id}", async (AppDbContext db, int id) =>
             {
-                var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogID == id);
+                var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
                 if (item == null)
                 {
                     return Results.NotFound("No data was found. Try again.");
@@ -36,7 +36,7 @@ namespace MNODotNetCore.MinimalAPI.Features.Blog
 
             app.MapPut("api/Blog/{id}", async (AppDbContext db, int id, BlogModel blog) =>
             {
-                var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogID == id);
+                var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
                 if (item is null)
                 {
                     return Results.NotFound("No data was found. Try again.");
@@ -52,7 +52,7 @@ namespace MNODotNetCore.MinimalAPI.Features.Blog
 
             app.MapDelete("api/Blog/{id}", async (AppDbContext db, int id) =>
             {
-                var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogID == id);
+                var item = await db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
                 if (item is null)
                 {
                     return Results.NotFound("No data was found. Try again.");

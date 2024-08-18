@@ -24,7 +24,7 @@ public class RefitExample
         foreach (var item in lst)
         {
 
-            Console.WriteLine($"ID: {item.BlogID}");
+            Console.WriteLine($"ID: {item.BlogId}");
             Console.WriteLine($"Title: {item.BlogTitle}");
             Console.WriteLine($"Author: {item.BlogAuthor}");
             Console.WriteLine($"Content: {item.BlogContent}");
@@ -37,7 +37,7 @@ public class RefitExample
         try
         {
             var item = await _service.GetBlog(id);
-            Console.WriteLine($"ID: {item.BlogID}");
+            Console.WriteLine($"ID: {item.BlogId}");
             Console.WriteLine($"Title: {item.BlogTitle}");
             Console.WriteLine($"Author: {item.BlogAuthor}");
             Console.WriteLine($"Content: {item.BlogContent}");
@@ -88,7 +88,7 @@ public class RefitExample
         {
             BlogModel blog = new BlogModel
             {
-                BlogID = id,
+                BlogId = id,
                 BlogTitle = title,
                 BlogAuthor = author,
                 BlogContent = content
@@ -113,7 +113,7 @@ public class RefitExample
         {
             BlogModel blog = new BlogModel
             {
-                BlogID = id,
+                BlogId = id,
                 BlogTitle = title,
                 BlogAuthor = author,
                 BlogContent = content
