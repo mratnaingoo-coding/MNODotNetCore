@@ -47,3 +47,4 @@
 - ASP .NET Core (MVC) + UI Design (12th Aug)
 - Blazor Web Assembly (12th Aug)
 - ASP.NET Core MVC Ajax - V2 (18th Aug)
+- ASP.NET Core Blazor Web Assembly with API (Get, Post) (19th Aug)
