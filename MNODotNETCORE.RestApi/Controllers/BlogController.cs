@@ -33,7 +33,7 @@ namespace MNODotNETCORE.RestApi.Controllers
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
-            var item = _context.Blog.FirstOrDefault(x=> x.BlogID == id);
+            var item = _context.Blog.FirstOrDefault(x=> x.BlogId == id);
             if(item == null)
             {
                 return NotFound("No data was found. Try again.");
@@ -53,7 +53,7 @@ namespace MNODotNETCORE.RestApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, BlogModel blog)
         {
-            var item = _context.Blog.FirstOrDefault(x => x.BlogID == id);
+            var item = _context.Blog.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 return NotFound("No data was found. Try again.");
@@ -70,7 +70,7 @@ namespace MNODotNETCORE.RestApi.Controllers
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, BlogModel blog)
         {
-            var item = _context.Blog.FirstOrDefault(x => x.BlogID == id);
+            var item = _context.Blog.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 return NotFound("No data was found. Try again.");
@@ -98,7 +98,7 @@ namespace MNODotNETCORE.RestApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var item = _context.Blog.FirstOrDefault(x => x.BlogID == id);
+            var item = _context.Blog.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
                 return NotFound("No data was found. Try again.");

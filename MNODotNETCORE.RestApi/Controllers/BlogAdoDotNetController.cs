@@ -30,13 +30,13 @@ namespace MNODotNETCORE.RestApi.Controllers
                 foreach (DataRow dr in dt.Rows)
                 {
                  BlogModel blog = new BlogModel();
-                blog.BlogID = Convert.ToInt32(dr["BlogID"]);
+                blog.BlogId = Convert.ToInt32(dr["BlogId"]);
                 blog.BlogTitle = Convert.ToString(dr["BlogTitle"]);
                 blog.BlogAuthor= Convert.ToString(dr["BlogAuthor"]);
                 blog.BlogContent= Convert.ToString(dr["BlogContent"]); 
                 BlogModel blog = new BlogModel
                 {
-                    BlogID = Convert.ToInt32(dr["BlogID"]),
+                    BlogId = Convert.ToInt32(dr["BlogId"]),
                     BlogTitle = Convert.ToString(dr["BlogTitle"]),
                     BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
                     BlogContent = Convert.ToString(dr["BlogContent"])
@@ -47,7 +47,7 @@ namespace MNODotNETCORE.RestApi.Controllers
 
             List<BlogModel> lst = dt.AsEnumerable().Select(dr => new BlogModel
                  {
-                BlogID = Convert.ToInt32(dr["BlogID"]),
+                BlogId = Convert.ToInt32(dr["BlogId"]),
                 BlogTitle = Convert.ToString(dr["BlogTitle"]),
                 BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
                 BlogContent = Convert.ToString(dr["BlogContent"])
@@ -65,9 +65,9 @@ namespace MNODotNETCORE.RestApi.Controllers
               conn.Open();
 
              
-              string query = "SELECT * from tbl_blog WHERE BlogID = @BlogID";
+              string query = "SELECT * from tbl_blog WHERE BlogId = @BlogId";
               SqlCommand cmd = new SqlCommand(query, conn);
-              cmd.Parameters.AddWithValue("BlogID", id);
+              cmd.Parameters.AddWithValue("BlogId", id);
               SqlDataAdapter adapter = new SqlDataAdapter(cmd);
               DataTable dt = new DataTable();
               adapter.Fill(dt);
@@ -81,7 +81,7 @@ namespace MNODotNETCORE.RestApi.Controllers
             DataRow dr = dt.Rows[0];
             var item = new BlogModel
             {
-                BlogID = Convert.ToInt32(dr["BlogID"]),
+                BlogId = Convert.ToInt32(dr["BlogId"]),
                 BlogTitle = Convert.ToString(dr["BlogTitle"]),
                 BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
                 BlogContent = Convert.ToString(dr["BlogContent"])
@@ -125,9 +125,9 @@ namespace MNODotNETCORE.RestApi.Controllers
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
- WHERE BlogID = @BlogID";
+ WHERE BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogID", id);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
             cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
             cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
@@ -169,9 +169,9 @@ namespace MNODotNETCORE.RestApi.Controllers
                 return NotFound("Please input at least one.");
             }
             item = item.Substring(0, item.Length - 2);
-            query += item + " WHERE BlogID = @BlogID";
+            query += item + " WHERE BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogID",id);
+            cmd.Parameters.AddWithValue("@BlogId",id);
             if (blog.BlogTitle != null)
             {
                 cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
@@ -199,9 +199,9 @@ namespace MNODotNETCORE.RestApi.Controllers
             SqlConnection conn = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
             conn.Open();
 
-            string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
+            string query = @"DELETE FROM tbl_blog WHERE BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogID", id);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             int result = cmd.ExecuteNonQuery();
 
             conn.Close();

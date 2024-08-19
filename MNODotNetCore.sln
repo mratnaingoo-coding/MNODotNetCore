@@ -56,7 +56,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.MvcDesignApp"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.BlazorWasm", "MNODotNetCore.BlazorWasm\MNODotNetCore.BlazorWasm.csproj", "{17C92FA6-F811-47B0-B508-112925263389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.MvcApp3", "MNODotNetCore.MvcApp3\MNODotNetCore.MvcApp3.csproj", "{54A1E71F-1EA0-470F-8A41-ED03E8657E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MNODotNetCore.MvcApp3", "MNODotNetCore.MvcApp3\MNODotNetCore.MvcApp3.csproj", "{54A1E71F-1EA0-470F-8A41-ED03E8657E95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MNODotNetCore.BlazorWasm2", "MNODotNetCore.BlazorWasm2\MNODotNetCore.BlazorWasm2.csproj", "{D9574079-8D0D-42CE-8F88-21A7222E4E50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -164,6 +166,10 @@ Global
 		{54A1E71F-1EA0-470F-8A41-ED03E8657E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54A1E71F-1EA0-470F-8A41-ED03E8657E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54A1E71F-1EA0-470F-8A41-ED03E8657E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9574079-8D0D-42CE-8F88-21A7222E4E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9574079-8D0D-42CE-8F88-21A7222E4E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9574079-8D0D-42CE-8F88-21A7222E4E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9574079-8D0D-42CE-8F88-21A7222E4E50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

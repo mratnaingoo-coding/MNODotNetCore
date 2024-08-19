@@ -38,14 +38,14 @@ namespace MNODotNETCORE.RestApi.Controllers
           {
 
               
-              string query = "SELECT * from tbl_blog WHERE BlogID = @BlogID";
+              string query = "SELECT * from tbl_blog WHERE BlogId = @BlogId";
 
             // if u didn't use params in AdoDotNetService & put parameters into null, use below.
            /* AdoDotNetParameter[] para = new AdoDotNetParameter[1];
-            para[0] = new AdoDotNetParameter("@BlogID", id);
+            para[0] = new AdoDotNetParameter("@BlogId", id);
               var lst = _adoDotNetServices.Query<BlogModel>(query, para);*/
 
-           var lst= _adoDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogID",id));
+           var lst= _adoDotNetService.QueryFirstOrDefault<BlogModel>(query, new AdoDotNetParameter("@BlogId",id));
 
             if (lst is null)
             {
@@ -87,10 +87,10 @@ namespace MNODotNETCORE.RestApi.Controllers
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
- WHERE BlogID = @BlogID";
+ WHERE BlogId = @BlogId";
            
             int result = _adoDotNetService.Execute(query,
-                    new AdoDotNetParameter("@BlogID", id),
+                    new AdoDotNetParameter("@BlogId", id),
                     new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                     new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
                     new AdoDotNetParameter("@BlogContent", blog.BlogContent)
@@ -130,9 +130,9 @@ namespace MNODotNETCORE.RestApi.Controllers
             {
                 return NotFound("Please input at least one.");
             }
-            parameters.Add(new AdoDotNetParameter("@BlogID", id));
+            parameters.Add(new AdoDotNetParameter("@BlogId", id));
             item = item.Substring(0, item.Length - 2);
-            query += item + " WHERE BlogID = @BlogID";
+            query += item + " WHERE BlogId = @BlogId";
            
             int result = _adoDotNetService.Execute(query,
                parameters.ToArray() );
@@ -146,10 +146,10 @@ namespace MNODotNETCORE.RestApi.Controllers
         {
            
 
-            string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
+            string query = @"DELETE FROM tbl_blog WHERE BlogId = @BlogId";
             
             int result = _adoDotNetService.Execute(query,
-                new AdoDotNetParameter("@BlogID", id));
+                new AdoDotNetParameter("@BlogId", id));
 
            
             string message = result > 0 ? "Deleting success." : "Deleting fail.";

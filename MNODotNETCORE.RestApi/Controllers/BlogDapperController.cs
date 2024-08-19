@@ -24,9 +24,9 @@ namespace MNODotNETCORE.RestApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetBlog(int id)
         {
-           // string query = "SELECT * FROM tbl_blog WHERE BlogID = @BlogID";
+           // string query = "SELECT * FROM tbl_blog WHERE BlogId = @BlogId";
            // using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
-           // var item = db.Query<BlogModel>(query, new BlogModel { BlogID = id }).FirstOrDefault();
+           // var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
             // if(item == null) net same.
             var item = searchWithID(id);
             if (item is null)
@@ -61,12 +61,12 @@ namespace MNODotNETCORE.RestApi.Controllers
             {
                 return NotFound("No data was found.");
             }
-            blog.BlogID = id;
+            blog.BlogId = id;
             string query = @"UPDATE [dbo].[tbl_blog]
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
- WHERE BlogID = @BlogID";
+ WHERE BlogId = @BlogId";
 
             using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);
@@ -102,11 +102,11 @@ namespace MNODotNETCORE.RestApi.Controllers
                 return NotFound("please input at least one.");
             }
             conditions = conditions.Substring(0, conditions.Length - 2);
-            blog.BlogID = id;
+            blog.BlogId = id;
 
             string query = $@"UPDATE [dbo].[tbl_blog]
    SET {conditions}
- WHERE BlogID = @BlogID";
+ WHERE BlogId = @BlogId";
             
             using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);
@@ -123,10 +123,10 @@ namespace MNODotNETCORE.RestApi.Controllers
                 return NotFound("No data was found.");
             }
 
-            string query = @"DELETE FROM tbl_blog WHERE BlogID = @BlogID";
+            string query = @"DELETE FROM tbl_blog WHERE BlogId = @BlogId";
 
             using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query, new BlogModel { BlogID = id});
+            int result = db.Execute(query, new BlogModel { BlogId = id});
 
             string message = result > 0 ? "Deleting success." : "Deleting fail.";
 
@@ -135,9 +135,9 @@ namespace MNODotNETCORE.RestApi.Controllers
         
         private BlogModel? searchWithID(int id)
         {
-            string query = "SELECT * FROM tbl_blog WHERE BlogID = @BlogID";
+            string query = "SELECT * FROM tbl_blog WHERE BlogId = @BlogId";
             using IDbConnection db = new SqlConnection(ConnectionString.sqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogModel>(query, new BlogModel { BlogID = id }).FirstOrDefault();
+            var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
             return item;
 
         }
